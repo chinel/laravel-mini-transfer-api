@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1c8b4297-84c6-4d61-9abb-10638f747789" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_07_09_102423_create_balances_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_07_09_102423_create_balances_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Balance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Balance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TransactionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TransactionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Transaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Transaction.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +171,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1594288924766</updated>
-      <workItem from="1594288938731" duration="3313000" />
+      <workItem from="1594288938731" duration="3913000" />
     </task>
     <servers />
   </component>
