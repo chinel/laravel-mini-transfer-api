@@ -15,6 +15,7 @@ class ApiController extends Controller
 {
     public $loginAfterSignUp = true;
 
+    /*This action allows the user to register*/
     public function register(Request $request)
     {
 
@@ -59,6 +60,8 @@ class ApiController extends Controller
         ], 200);
     }
 
+
+    /*This action is used to login in a user*/
     public function login(Request $request)
     {
         $input = $request->only('email', 'password');
@@ -77,6 +80,8 @@ class ApiController extends Controller
         ]);
     }
 
+
+    //This action is used to log out a userr
     public function logout(Request $request)
     {
         $this->validate($request, [
@@ -98,6 +103,8 @@ class ApiController extends Controller
         }
     }
 
+
+    /*This action gets the logged in users details*/
     public function getAuthUser(Request $request)
     {
         $this->validate($request, [
@@ -109,6 +116,8 @@ class ApiController extends Controller
         return response()->json(['user' => $user]);
     }
 
+
+    //THIS ACTION GENERATES A UNIQUE ACCOUNT NUMBER FOR EACH REGISTERED USER
    public function generateAccountNumber() {
         $number = mt_rand(1000000000, 9999999999);
 
@@ -118,6 +127,7 @@ class ApiController extends Controller
 
         return $number;
     }
+
 
     public function accountNumberExists($number) {
         return Balance::whereAccount($number)->exists();
