@@ -8,6 +8,7 @@
  HOW TO USE
  - Clone this application and install all dependencies using composer install
  - Then create a database with the same name as that in the env file, make sure the username and password of your database are correct
+ - The run php artisan migrate to run the migration files
  - Then start the application using this command (php -S localhost:9097 -t public)
  
  HOW THE API WORKS
