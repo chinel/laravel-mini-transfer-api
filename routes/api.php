@@ -19,8 +19,7 @@ Route::post('register', 'ApiController@register');
 Route::group(['middleware' => 'auth.jwt'], function () {
     Route::get('logout', 'ApiController@logout');
     Route::get('user', 'ApiController@getAuthUser');
-    Route::post('topUpAccount', 'TransactionController@topUp');
     Route::get('checkAccountBalance', 'TransactionController@accountBalance');
     Route::post('transferFunds', 'TransactionController@transferFunds');
-    Route::get('transactionHistory', 'TransactionController@history');
+    Route::get('transactionHistory', 'TransactionController@transactionHistory');
 });
