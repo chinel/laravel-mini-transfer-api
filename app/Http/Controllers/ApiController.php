@@ -15,8 +15,26 @@ class ApiController extends Controller
 {
     public $loginAfterSignUp = true;
 
-    public function register(RegisterRequest $request)
+    public function register(Request $request)
     {
+
+
+        $validator = \Validator::make($request->all(), [
+            'firstname' => 'required|string',
+            'lastname' => 'required|string',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|string|min:6|max:10'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $validator->errors()->all(),
+            ], 401);
+
+        }
+
+
         $user = new User();
         $user->firstname = $request->firstname;
         $user->lastname = $request->lastname;
@@ -27,7 +45,7 @@ class ApiController extends Controller
         $balance = new Balance();
         $balance->user_id = $user->id;
         $balance->balance = 100;
-        $balance->account = $id = IdGenerator::generate(['table' => 'balances', 'length' => 10, 'prefix' =>date('ym')]);
+        $balance->account = $id =  $this->generateAccountNumber();
         $balance->save();
 
 
@@ -89,5 +107,19 @@ class ApiController extends Controller
         $user = JWTAuth::authenticate($request->token);
 
         return response()->json(['user' => $user]);
+    }
+
+   public function generateAccountNumber() {
+        $number = mt_rand(1000000000, 9999999999);
+
+        if ($this->accountNumberExists($number)) {
+            return $this->generateAccountNumber();
+        }
+
+        return $number;
+    }
+
+    public function accountNumberExists($number) {
+        return Balance::whereAccount($number)->exists();
     }
 }

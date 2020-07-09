@@ -17,7 +17,7 @@ class CreateBalancesTable extends Migration
             $table->id();
             $table->string('account')->unique();
             $table->double('balance');
-            $table->integer('user_id');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
 
             $table->foreign('user_id')
@@ -25,6 +25,8 @@ class CreateBalancesTable extends Migration
                 ->on('users')
                 ->onDelete('cascade');
         });
+
+
     }
 
     /**
