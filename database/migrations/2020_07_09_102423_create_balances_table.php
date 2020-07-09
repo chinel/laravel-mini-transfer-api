@@ -19,6 +19,11 @@ class CreateBalancesTable extends Migration
             $table->double('balance');
             $table->integer('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
